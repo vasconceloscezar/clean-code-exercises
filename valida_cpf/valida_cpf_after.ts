@@ -2,7 +2,7 @@ const CPF_QUOTIENT = 11
 
 export function validatorCPF(cpf: string){
 	if(!cpf) return false
-	const isCpfLengthInRange = (cpf.length >= 11 || cpf.length <=14)
+	const isCpfLengthInRange = (cpf.length >= 11 && cpf.length <=14)
 	if(!isCpfLengthInRange) return false
 	const cpfNumbers = removeCPFMask(cpf)
 	const isAllCpfDigitsTheSame = cpfNumbers.split("").every((c) => c === cpfNumbers[0])

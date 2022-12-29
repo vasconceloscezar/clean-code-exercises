@@ -1,8 +1,6 @@
-// import validate from "./valida_cpf_before"
 import { validatorCPF } from "./valida_cpf_after"
 
 describe('Should Validate CPFs', () => { 
-	// const cpfValidator = validate
 	const cpfValidator = validatorCPF
 	test('CPF 111.111.111-11 must be invalid', () => { 
 			const mockCPF = '111.111.111-11'
@@ -22,6 +20,14 @@ describe('Should Validate CPFs', () => {
 	 })
 	test('CPF empty must be invalid', () => { 
 			const mockCPF = ''
+			expect(cpfValidator(mockCPF)).toBe(false)
+	 })
+	 test('CPF out of must be invalid', () => { 
+			const mockCPF = '111.444.777-35333'
+			expect(cpfValidator(mockCPF)).toBe(false)
+	 })
+	 test('CPF in range with invalid string must be invalid', () => { 
+			const mockCPF = '111.444.777-2'
 			expect(cpfValidator(mockCPF)).toBe(false)
 	 })
  })
