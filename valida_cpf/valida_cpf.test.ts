@@ -30,4 +30,8 @@ describe('Should Validate CPFs', () => {
 			const mockCPF = '111.444.777-2'
 			expect(cpfValidator(mockCPF)).toBe(false)
 	 })
+	 test('CPF with letters must be invalid', () => { 
+			const mockCPF = '111.444.aaa-23'
+			expect(cpfValidator(mockCPF)).toBe(false)
+	 })
  })
